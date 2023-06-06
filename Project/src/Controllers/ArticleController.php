@@ -39,9 +39,6 @@ class ArticleController
         $users = User::findAll();
         $article->getTitle();
         $article->getText();
-        // $article->setAuthorId()->setNickname('lena');
-        // $article->getAuthorId()->setNickname('Lena');
-        // $article->setAuthorNickname('Lena');
         $article->save();
 
         $this->view->renderHtml('article/edit.php', ['article' => $article, 'users' => $users]);
@@ -64,20 +61,7 @@ class ArticleController
         $res = $article->save();
         header('location: /../phplabs/Project/www/'); 
         exit();
-        // $this->show(34);
     }
-
-    // public function update(int $id)
-    // {
-    //     $article = Article::getById($id);
-    //     $article->setTitle($_POST['title']);
-    //     $article->setText($_POST['text']);
-    //     $article->setAuthorNickname($_POST['author']);
-
-    //     $article->save();
-    //     $this->show($id);
-
-    // }
 
     public function update(int $id)
     {
@@ -98,12 +82,4 @@ class ArticleController
         header('location: /../phplabs/Project/www/'); 
         exit();
     }
-
-    // public function comments(int $id)
-    // {
-    //     $article = Article::getById($id);
-    //     $article->getId()->setCommentText($_POST['text']);
-    //     $article->save();
-    //     $this->show($id);
-    // }
 }

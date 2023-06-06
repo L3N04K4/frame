@@ -20,10 +20,7 @@ class CommentController
 
     public function show(int $id)
     {
-        // $comment = Comment::getById($id);
         $comment = Comment::getById($id);
-
-        // $comments = Comment::findAll();
 
         if (!$comment) {
             $this->view->renderHtml('errors/404.php', [], 404);

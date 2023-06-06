@@ -40,12 +40,6 @@ abstract class ActiveRecordEntity
         
     }
 
-    // public static function findAllbyId(int $id): array
-    // {
-    //     $db = Db::getInstance();
-    //     return $db->query('SELECT * FROM `' . static::getTableName() . '`', [], static::class);
-    // }
-
     public function save()
     {
         $mappedProperties = $this->mapPropertiesToDbFormat();
@@ -87,9 +81,6 @@ abstract class ActiveRecordEntity
         $sql = 'UPDATE `' . static::getTableName() . '` SET ' . implode(',', $columns2params) . ' WHERE `id` = ' . $this->id;
         $db = Db::getInstance();
         $db->query($sql, $params2values, static::class);
-        // var_dump($columns2params);
-        // echo '<br>';
-        // var_dump($params2values);
     }
 
     private function underscoreToCamelcase(string $source)

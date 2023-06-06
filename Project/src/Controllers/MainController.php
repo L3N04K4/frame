@@ -14,7 +14,6 @@ class MainController
     public function __construct()
     {
         $this->view = new View(__DIR__ . '/../../templates');
-        // $this->db = new Db();
         $this->db = Db::getInstance();
     }
 
@@ -22,12 +21,6 @@ class MainController
     {
 
         $articles = Article::findAll();
-        // var_dump($articles[0]);
-        // $articles = [
-        //     ['title'=>'Статья 1', 'text'=>'Всем привет, это текст первой статьи'],
-        //     ['title'=>'Статья 2', 'text'=>'Всем привет, это текст второй статьи'],
-        // ];
-
         $this->view->renderHtml('main/main.php', ['articles' => $articles]);
     }
 
